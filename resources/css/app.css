@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color palette */
+  --color-cream: #F5E6D3;
+  --color-cream-dark: #EDD5BC;
+  --color-brown: #6B4F3A;
+  --color-brown-dark: #4A3527;
+  --color-brown-light: #8B6F5A;
+  --color-pink: #D8A7B1;
+  --color-pink-light: #ECC5CC;
+  --color-gold: #C9A66B;
+  --color-gold-dark: #A3845A;
+  --color-warm-white: #FEFAF5;
+  --color-warm-gray: #8A7A72;
+
+  /* Typography */
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  /* Spacing */
+  --spacing-section: 6rem;
+}
+
+/* Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-warm-white);
+  color: var(--color-brown-dark);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-cream); }
+::-webkit-scrollbar-thumb { background: var(--color-gold); border-radius: 3px; }
+
+/* Selection */
+::selection {
+  background-color: var(--color-pink);
+  color: var(--color-brown-dark);
+}
+
+/* Headings use serif */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* Invisible initially for GSAP animations */
+.gsap-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.gsap-reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+.gsap-reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+}

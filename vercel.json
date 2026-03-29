@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "framework": null,
+    "outputDirectory": "public",
+    "builds": [
+        {
+            "src": "api/index.php",
+            "use": "vercel-php@0.9.0"
+        },
+        {
+            "src": "/package.json",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "public/build"
+            }
+        }
+    ],
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "APP_URL": "https://your-project.vercel.app",
+        "ASSET_URL": "https://your-project.vercel.app"
+    }
+}
