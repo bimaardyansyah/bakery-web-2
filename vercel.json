@@ -7,7 +7,7 @@
             "src": "package.json",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "public/build"
+                "distDir": "public"
             }
         },
         {
@@ -16,10 +16,6 @@
         }
     ],
     "routes": [
-        {
-            "src": "/build/(.*)",
-            "dest": "/public/build/$1"
-        },
         {
             "handle": "filesystem"
         },
@@ -30,7 +26,7 @@
     ],
     "env": {
         "APP_ENV": "production",
-        "APP_DEBUG": "true",
+        "APP_DEBUG": "false",
         "APP_KEY": "base64:2rgrT85cbsRiuqdnBtLnZJevIHqnkCxRMwx9wxWaaUA=",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
