@@ -2,20 +2,16 @@
     "version": 2,
     "framework": null,
     "outputDirectory": "public",
-    "builds": [
-        {
-            "src": "api/index.php",
-            "use": "vercel-php@0.9.0"
-        },
-        {
-            "src": "package.json",
-            "use": "@vercel/static-build",
-            "config": {
-                "distDir": "public/build"
-            }
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.9.0"
         }
-    ],
+    },
     "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
         {
             "handle": "filesystem"
         },
@@ -33,6 +29,11 @@
         "CACHE_STORE": "array",
         "APP_STORAGE_PATH": "/tmp/storage",
         "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
-        "ASSET_URL": "https://bakery-web-2.vercel.app"
+        "ASSET_URL": "https://bakery-web-2.vercel.app",
+        "APP_CONFIG_CACHE": "/tmp/storage/bootstrap/cache/config.php",
+        "APP_EVENTS_CACHE": "/tmp/storage/bootstrap/cache/events.php",
+        "APP_PACKAGES_CACHE": "/tmp/storage/bootstrap/cache/packages.php",
+        "APP_ROUTES_CACHE": "/tmp/storage/bootstrap/cache/routes.php",
+        "APP_SERVICES_CACHE": "/tmp/storage/bootstrap/cache/services.php"
     }
 }

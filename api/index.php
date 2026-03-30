@@ -3,11 +3,19 @@
 /**
  * Forward Vercel serverless requests to the normal Laravel application.
  */
-if (!file_exists('/tmp/storage/framework/views')) {
-    mkdir('/tmp/storage/framework/views', 0755, true);
-}
-if (!file_exists('/tmp/storage/framework/cache/data')) {
-    mkdir('/tmp/storage/framework/cache/data', 0755, true);
+
+// Create the necessary directories for the Laravel application to function in a read-only filesystem.
+$dirs = [
+    '/tmp/storage/framework/views',
+    '/tmp/storage/framework/cache/data',
+    '/tmp/storage/bootstrap/cache',
+    '/tmp/storage/logs',
+];
+
+foreach ($dirs as $dir) {
+    if (!file_exists($dir)) {
+        mkdir($dir, 0755, true);
+    }
 }
 
 require __DIR__ . '/../public/index.php';
