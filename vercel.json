@@ -27,10 +27,12 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "false",
+        "APP_KEY": "base64:2rgrT85cbsRiuqdnBtLnZJevIHqnkCxRMwx9wxWaaUA=",
         "LOG_CHANNEL": "stderr",
         "SESSION_DRIVER": "cookie",
         "CACHE_STORE": "array",
         "APP_STORAGE_PATH": "/tmp/storage",
-        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views"
+        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
+        "ASSET_URL": "https://bakery-web-2.vercel.app"
     }
 }
